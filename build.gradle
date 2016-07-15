@@ -1,0 +1,39 @@
+buildscript {
+	ext {
+		springBootVersion = '1.3.5.RELEASE'
+	}
+	repositories {
+		mavenLocal()	
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+	}
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot' 
+
+jar {
+	baseName = 'springboot-commons-chain'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter'
+	// https://mvnrepository.com/artifact/commons-chain/commons-chain
+	compile 'commons-chain:commons-chain:1.2'
+	// https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all
+	compile 'org.codehaus.groovy:groovy-all:2.4.7'
+
+	testCompile 'org.springframework.boot:spring-boot-starter-test' 
+}
